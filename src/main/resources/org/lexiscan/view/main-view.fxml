@@ -1,14 +1,284 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<?import java.lang.*?>
-<?import java.util.*?>
-<?import javafx.scene.*?>
-<?import javafx.scene.control.*?>
-<?import javafx.scene.layout.*?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Label?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.ScrollPane?>
+<?import javafx.scene.control.TextArea?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.layout.BorderPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.Priority?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.TextFlow?>
+<?import javafx.scene.layout.Region?>
 
-<AnchorPane xmlns="http://javafx.com/javafx"
-            xmlns:fx="http://javafx.com/fxml"
-            fx:controller="org.lexiscan.controller.MainController"
-            prefHeight="400.0" prefWidth="600.0">
+<!--BorderPane divides the application into a fixed sidebar and a
+    flexible main content area.-->
+<BorderPane xmlns="http://javafx.com/javafx" xmlns:fx="http://javafx.com/fxml" fx:controller="org.lexiscan.controller.MainController" styleClass="root">
 
-</AnchorPane>
+    <!-- SIDEBAR -->
+    <!--The sidebar contains the application branding and the main
+        navigation. Additional navigation options can be added here
+        if the application grows in the future.-->
+    <left>
+        <VBox styleClass="sidebar" prefWidth="250.0" spacing="30.0">
+
+            <padding>
+                <Insets top="35.0" right="20.0" bottom="25.0" left="20.0"/>
+            </padding>
+
+            <!-- Branding -->
+            <VBox spacing="4.0">
+                <Label text="LexiScan" styleClass="logo"/>
+
+                <Label text="Analiza. Cuenta. Descubre." styleClass="tagline"/>
+            </VBox>
+
+            <!-- Navigation -->
+            <VBox spacing="10.0" VBox.vgrow="ALWAYS">
+
+                <Button text="▣   Analizador de Texto" styleClass="navigation-button" maxWidth="Infinity"/>
+
+            </VBox>
+
+        </VBox>
+    </left>
+
+
+    <!-- MAIN CONTENT -->
+    <center>
+        <ScrollPane fitToWidth="true" hbarPolicy="NEVER" styleClass="content-scroll">
+
+            <VBox styleClass="content" spacing="25.0">
+
+                <padding>
+                    <Insets top="40.0" right="40.0" bottom="40.0" left="40.0"/>
+                </padding>
+
+
+                <!-- HEADER -->
+                <VBox spacing="6.0">
+
+                    <Label text="Analizador de Texto" styleClass="page-title"/>
+
+                    <Label text="Introduce o pega un texto para analizar sus componentes." styleClass="page-subtitle"/>
+
+                </VBox>
+
+
+                <!-- WORKSPACE -->
+                <HBox spacing="25.0" VBox.vgrow="ALWAYS">
+
+                    <!-- LEFT COLUMN -->
+                    <VBox spacing="25.0" HBox.hgrow="ALWAYS">
+
+
+                        <!-- INPUT CARD -->
+                        <!--This section contains the text entered by the user and the
+                            controls used to start or reset the analysis.-->
+                        <VBox styleClass="card" spacing="18.0">
+
+                            <!-- Header -->
+                            <HBox alignment="CENTER_LEFT">
+
+                                <Label text="Texto de entrada" styleClass="card-title"/>
+
+                                <Region HBox.hgrow="ALWAYS"/>
+
+                                <!--Displays the current number of characters in the input.
+                                The controller updates this value as the user types.-->
+                                <Label fx:id="characterCountLabel" text="0 caracteres" styleClass="character-count"/>
+
+                            </HBox>
+
+                            <!-- Text input -->
+                            <TextArea fx:id="textInput" promptText="Escribe o pega tu texto aquí..." wrapText="true" prefRowCount="10" styleClass="text-input"/>
+
+                            <!-- Actions -->
+                            <HBox alignment="CENTER_LEFT" spacing="10.0">
+
+                                <Button fx:id="clearButton" text="Limpiar" styleClass="secondary-button"/>
+
+                                <Region HBox.hgrow="ALWAYS"/>
+
+                                <Button fx:id="analyzeButton" text="▶  Analizar" styleClass="primary-button"/>
+
+                            </HBox>
+
+                        </VBox>
+
+
+                        <!-- HIGHLIGHT CARD -->
+                        <VBox styleClass="card" spacing="15.0">
+
+                            <Label text="Texto analizado" styleClass="card-title"/>
+
+                            <Label text="Selecciona una categoría para resaltar sus elementos." styleClass="card-subtitle"/>
+
+                            <!-- TextFlow is used instead of a Label because individual characters
+                            need to be styled independently when highlighting vowels, consonants,
+                            digits, or special characters.-->
+                            <ScrollPane fitToWidth="true" fitToHeight="true" hbarPolicy="NEVER" vbarPolicy="AS_NEEDED" styleClass="highlight-scroll">
+
+                                <TextFlow fx:id="highlightedText" styleClass="highlight-text"/>
+
+                            </ScrollPane>
+
+                        </VBox>
+
+
+                        <!-- EXAMPLES -->
+                        <VBox styleClass="card" spacing="15.0">
+
+                            <Label text="Ejemplos" styleClass="card-title"/>
+
+                            <Label text="Puedes probar con alguno de estos ejemplos:" styleClass="card-subtitle"/>
+
+                            <HBox spacing="10.0">
+
+                                <Button fx:id="exampleOneButton" text="¡Hola, mundo!" styleClass="example-button" HBox.hgrow="ALWAYS"/>
+
+                                <Button fx:id="exampleTwoButton" text="La vida es mejor con código." styleClass="example-button" HBox.hgrow="ALWAYS"/>
+
+                                <Button fx:id="exampleThreeButton" text="123.45 @#%" styleClass="example-button" HBox.hgrow="ALWAYS"/>
+
+                            </HBox>
+
+                        </VBox>
+
+                    </VBox>
+
+
+                    <!-- RESULTS -->
+                    <!--Each result item displays the count of one category and includes
+                        a RadioButton so the user can select which category to highlight
+                        in the analyzed text.-->
+                    <VBox styleClass="results-card" spacing="18.0" prefWidth="360.0">
+
+                        <!-- Results header -->
+                        <VBox spacing="4.0">
+
+                            <Label text="Resultados" styleClass="results-title"/>
+
+                            <Label text="Aquí verás el análisis de tu texto." styleClass="card-subtitle"/>
+
+                        </VBox>
+
+
+                        <!-- Radio group -->
+                        <fx:define>
+                            <!--All RadioButtons share this ToggleGroup so only one analysis
+                            category can be selected at a time.-->
+                            <ToggleGroup fx:id="analysisGroup"/>
+                        </fx:define>
+
+
+                        <!-- Words -->
+                        <HBox styleClass="result-item" spacing="15.0" alignment="CENTER_LEFT">
+
+                            <Label text="▤" styleClass="result-icon"/>
+
+                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+
+                                <Label text="Palabras" styleClass="result-name"/>
+
+                                <Label fx:id="wordCountLabel" text="0" styleClass="result-count"/>
+
+                                <Label text="Secuencias de letras" styleClass="result-description"/>
+
+                            </VBox>
+
+                            <RadioButton fx:id="wordsRadio" toggleGroup="$analysisGroup"/>
+
+                        </HBox>
+
+
+                        <!-- Vowels -->
+                        <HBox styleClass="result-item" spacing="15.0" alignment="CENTER_LEFT">
+
+                            <Label text="A" styleClass="result-icon"/>
+
+                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+
+                                <Label text="Vocales" styleClass="result-name"/>
+
+                                <Label fx:id="vowelCountLabel" text="0" styleClass="result-count"/>
+
+                                <Label text="a, e, i, o, u" styleClass="result-description"/>
+
+                            </VBox>
+
+                            <RadioButton fx:id="vowelsRadio"
+                                         toggleGroup="$analysisGroup"/>
+
+                        </HBox>
+
+
+                        <!-- Consonants -->
+                        <HBox styleClass="result-item" spacing="15.0" alignment="CENTER_LEFT">
+
+                            <Label text="B" styleClass="result-icon"/>
+
+                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+
+                                <Label text="Consonantes" styleClass="result-name"/>
+
+                                <Label fx:id="consonantCountLabel" text="0" styleClass="result-count"/>
+
+                                <Label text="Letras que no son vocales" styleClass="result-description"/>
+
+                            </VBox>
+
+                            <RadioButton fx:id="consonantsRadio" toggleGroup="$analysisGroup"/>
+
+                        </HBox>
+
+
+                        <!-- Digits -->
+                        <HBox styleClass="result-item" spacing="15.0" alignment="CENTER_LEFT">
+
+                            <Label text="1" styleClass="result-icon"/>
+
+                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+
+                                <Label text="Dígitos" styleClass="result-name"/>
+
+                                <Label fx:id="digitCountLabel" text="0" styleClass="result-count"/>
+
+                                <Label text="0 - 9" styleClass="result-description"/>
+
+                            </VBox>
+
+                            <RadioButton fx:id="digitsRadio" toggleGroup="$analysisGroup"/>
+
+                        </HBox>
+
+
+                        <!-- Special characters -->
+                        <HBox styleClass="result-item" spacing="15.0" alignment="CENTER_LEFT">
+
+                            <!-- "\" is used as an escape character to turn off the special meaning of resolution operators -->
+                            <Label text="\@" styleClass="result-icon"/>
+
+                            <VBox spacing="2.0" HBox.hgrow="ALWAYS">
+
+                                <Label text="Caracteres especiales" styleClass="result-name"/>
+
+                                <Label fx:id="specialCountLabel" text="0" styleClass="result-count"/>
+
+                                <Label text="No letras, dígitos ni espacios" styleClass="result-description"/>
+
+                            </VBox>
+
+                            <RadioButton fx:id="specialRadio" toggleGroup="$analysisGroup"/>
+
+                        </HBox>
+
+                    </VBox>
+                </HBox>
+            </VBox>
+        </ScrollPane>
+    </center>
+</BorderPane>

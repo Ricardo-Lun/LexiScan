@@ -13,6 +13,8 @@
 <?import javafx.scene.layout.VBox?>
 <?import javafx.scene.text.TextFlow?>
 <?import javafx.scene.layout.Region?>
+<?import javafx.scene.image.Image?>
+<?import javafx.scene.image.ImageView?>
 
 <!--BorderPane divides the application into a fixed sidebar and a
     flexible main content area.-->
@@ -31,9 +33,23 @@
 
             <!-- Branding -->
             <VBox spacing="4.0">
-                <Label text="LexiScan" styleClass="logo"/>
+
+                <HBox alignment="CENTER_LEFT" spacing="10.0">
+
+                    <ImageView fitWidth="45.0"
+                               fitHeight="45.0"
+                               preserveRatio="true">
+                        <image>
+                            <Image url="@img/LexiScan_logo.png"/>
+                        </image>
+                    </ImageView>
+
+                    <Label text="LexiScan" styleClass="logo"/>
+
+                </HBox>
 
                 <Label text="Analiza. Cuenta. Descubre." styleClass="tagline"/>
+
             </VBox>
 
             <!-- Navigation -->

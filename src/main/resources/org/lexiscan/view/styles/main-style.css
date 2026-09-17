@@ -1,0 +1,720 @@
+/* =========================================================
+   ESTILOS GENERALES
+   LexiScan - Analizador de Texto
+   ========================================================= */
+
+.root {
+
+    -fx-font-family: "Segoe UI", "Arial";
+
+    -fx-background-color: #050505;
+
+}
+
+
+/* =========================================================
+   BARRA LATERAL
+   ========================================================= */
+
+.sidebar {
+
+    -fx-background-color: #0d0d0d;
+
+    -fx-border-color: #222222;
+
+    -fx-border-width: 0 1 0 0;
+
+}
+
+
+/* =========================================================
+   LOGOTIPO
+   ========================================================= */
+
+.logo {
+    -fx-text-fill: white;
+
+    -fx-font-size: 25px;
+
+    -fx-font-weight: bold;
+
+}
+
+
+.tagline {
+
+    -fx-text-fill: #8c8c8c;
+
+    -fx-font-size: 13px;
+
+}
+
+
+/* =========================================================
+   BOTÓN DE NAVEGACIÓN
+   ========================================================= */
+
+.navigation-button {
+
+    -fx-background-color: #5f5ce6;
+
+    -fx-text-fill: white;
+
+    -fx-background-radius: 12;
+
+    -fx-font-size: 15px;
+
+    -fx-font-weight: bold;
+
+    -fx-padding: 15 18;
+
+    -fx-alignment: CENTER_LEFT;
+
+    -fx-cursor: hand;
+
+}
+
+
+.navigation-button:hover {
+
+    -fx-background-color: #716ef5;
+
+}
+
+
+.navigation-button:pressed {
+
+    -fx-background-color: #4b48c7;
+
+}
+
+
+/* =========================================================
+   CONTENIDO PRINCIPAL
+   ========================================================= */
+
+.content {
+
+    -fx-background-color: #050505;
+
+}
+
+
+.content-scroll {
+
+    -fx-background-color: #050505;
+
+    -fx-border-color: transparent;
+
+}
+
+
+.content-scroll > .viewport {
+
+    -fx-background-color: #050505;
+
+}
+
+
+/* =========================================================
+   TÍTULO PRINCIPAL
+   ========================================================= */
+
+.page-title {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 34px;
+
+    -fx-font-weight: bold;
+
+}
+
+
+.page-subtitle {
+
+    -fx-text-fill: #999999;
+
+    -fx-font-size: 15px;
+
+}
+
+
+/* =========================================================
+   CARDS GENERALES
+   ========================================================= */
+
+.card {
+
+    -fx-background-color: #111111;
+
+    -fx-background-radius: 16;
+
+    -fx-border-color: #252525;
+
+    -fx-border-width: 1;
+
+    -fx-border-radius: 16;
+
+    -fx-padding: 22;
+
+    -fx-effect: dropshadow(
+
+            gaussian,
+
+            rgba(0, 0, 0, 0.45),
+
+            12,
+
+            0.15,
+
+            0,
+
+            3
+
+    );
+
+}
+
+
+/* =========================================================
+   TÍTULOS DE LAS CARDS
+   ========================================================= */
+
+.card-title {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 20px;
+
+    -fx-font-weight: bold;
+
+}
+
+
+.card-subtitle {
+
+    -fx-text-fill: #929292;
+
+    -fx-font-size: 13px;
+
+}
+
+
+/* =========================================================
+   CONTADOR DE CARACTERES
+   ========================================================= */
+
+.character-count {
+
+    -fx-text-fill: #a0a0a0;
+
+    -fx-font-size: 13px;
+
+}
+
+
+/* =========================================================
+   ÁREA DE TEXTO
+   ========================================================= */
+
+.text-input {
+
+    -fx-background-color: #1b1b1b;
+
+    -fx-control-inner-background: #1b1b1b;
+
+    -fx-text-fill: white;
+
+    -fx-prompt-text-fill: #777777;
+
+    -fx-font-size: 14px;
+
+    -fx-background-radius: 12;
+
+    -fx-border-color: #333333;
+
+    -fx-border-width: 1;
+
+    -fx-border-radius: 12;
+
+    -fx-padding: 15;
+
+}
+
+
+.text-input:focused {
+
+    -fx-background-color: #1b1b1b;
+
+    -fx-border-color: #6666ff;
+
+    -fx-border-width: 2;
+
+}
+
+
+/* =========================================================
+   BOTÓN LIMPIAR
+   ========================================================= */
+
+.secondary-button {
+
+    -fx-background-color: #292929;
+
+    -fx-text-fill: white;
+
+    -fx-background-radius: 10;
+
+    -fx-font-size: 14px;
+
+    -fx-font-weight: bold;
+
+    -fx-padding: 12 18;
+
+    -fx-cursor: hand;
+
+}
+
+
+.secondary-button:hover {
+
+    -fx-background-color: #383838;
+
+}
+
+
+.secondary-button:pressed {
+
+    -fx-background-color: #202020;
+
+}
+
+
+/* =========================================================
+   BOTÓN ANALIZAR
+   ========================================================= */
+
+.primary-button {
+
+    -fx-background-color: #635ee8;
+
+    -fx-text-fill: white;
+
+    -fx-background-radius: 10;
+
+    -fx-font-size: 14px;
+
+    -fx-font-weight: bold;
+
+    -fx-padding: 12 20;
+
+    -fx-cursor: hand;
+
+}
+
+
+.primary-button:hover {
+
+    -fx-background-color: #746ff5;
+
+}
+
+
+.primary-button:pressed {
+
+    -fx-background-color: #504bc9;
+
+}
+
+
+/* =========================================================
+   CARD DE RESULTADOS
+   ========================================================= */
+
+.results-card {
+
+    -fx-background-color: #111111;
+
+    -fx-background-radius: 16;
+
+    -fx-border-color: #252525;
+
+    -fx-border-width: 1;
+
+    -fx-border-radius: 16;
+
+    -fx-padding: 22;
+
+    -fx-effect: dropshadow(
+
+            gaussian,
+
+            rgba(0, 0, 0, 0.45),
+
+            12,
+
+            0.15,
+
+            0,
+
+            3
+
+    );
+
+}
+
+
+/* =========================================================
+   TÍTULO DE RESULTADOS
+   ========================================================= */
+
+.results-title {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 22px;
+
+    -fx-font-weight: bold;
+
+}
+
+
+/* =========================================================
+   CARDS DE RESULTADOS
+   ========================================================= */
+
+.result-item {
+
+    -fx-background-radius: 15;
+
+    -fx-border-radius: 15;
+
+    -fx-border-width: 1;
+
+    -fx-padding: 15;
+
+}
+
+
+/* =========================================================
+   PALABRAS
+   Azul / lila
+   ========================================================= */
+
+.result-item.palabras {
+
+    -fx-background-color: #34335c;
+
+    -fx-border-color: #5553a0;
+
+}
+
+
+/* =========================================================
+   VOCALES
+   Verde
+   ========================================================= */
+
+.result-item.vocales {
+
+    -fx-background-color: #214d3b;
+
+    -fx-border-color: #347d5e;
+
+}
+
+
+/* =========================================================
+   CONSONANTES
+   Amarillo
+   ========================================================= */
+
+.result-item.consonantes {
+
+    -fx-background-color: #51451f;
+
+    -fx-border-color: #806d2c;
+
+}
+
+
+/* =========================================================
+   DÍGITOS
+   Morado
+   ========================================================= */
+
+.result-item.digitos {
+
+    -fx-background-color: #3e285d;
+
+    -fx-border-color: #7047a0;
+
+}
+
+
+/* =========================================================
+   CARACTERES ESPECIALES
+   Azul cielo
+   ========================================================= */
+
+.result-item.especiales {
+
+    -fx-background-color: #1d4d59;
+
+    -fx-border-color: #31859a;
+
+}
+
+
+/* =========================================================
+   ICONOS DE RESULTADOS
+   ========================================================= */
+
+.result-icon {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 22px;
+
+    -fx-font-weight: bold;
+
+    -fx-alignment: CENTER;
+
+    -fx-min-width: 58;
+
+    -fx-pref-width: 58;
+
+    -fx-min-height: 58;
+
+    -fx-pref-height: 58;
+
+    -fx-background-radius: 13;
+
+}
+
+
+/* =========================================================
+   COLOR DE ICONO - PALABRAS
+   ========================================================= */
+
+.result-item.palabras .result-icon {
+
+    -fx-background-color: #6462d9;
+
+}
+
+
+/* =========================================================
+   COLOR DE ICONO - VOCALES
+   ========================================================= */
+
+.result-item.vocales .result-icon {
+
+    -fx-background-color: #35bd72;
+
+}
+
+
+/* =========================================================
+   COLOR DE ICONO - CONSONANTES
+   ========================================================= */
+
+.result-item.consonantes .result-icon {
+
+    -fx-background-color: #e2aa32;
+
+}
+
+
+/* =========================================================
+   COLOR DE ICONO - DÍGITOS
+   ========================================================= */
+
+.result-item.digitos .result-icon {
+
+    -fx-background-color: #8552d1;
+
+}
+
+
+/* =========================================================
+   COLOR DE ICONO - ESPECIALES
+   ========================================================= */
+
+.result-item.especiales .result-icon {
+
+    -fx-background-color: #35bfd5;
+
+}
+
+
+/* =========================================================
+   NOMBRE DEL RESULTADO
+   ========================================================= */
+
+.result-name {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 15px;
+
+    -fx-font-weight: bold;
+
+}
+
+
+/* =========================================================
+   CONTADOR DEL RESULTADO
+   ========================================================= */
+
+.result-count {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 21px;
+
+    -fx-font-weight: bold;
+
+}
+
+
+/* =========================================================
+   DESCRIPCIÓN DEL RESULTADO
+   ========================================================= */
+
+.result-description {
+
+    -fx-text-fill: #c0c0c0;
+
+    -fx-font-size: 12px;
+
+}
+
+
+/* =========================================================
+   RADIO BUTTON
+   ========================================================= */
+
+.result-item .radio-button {
+
+    -fx-cursor: hand;
+
+}
+
+
+/* =========================================================
+   TEXTO ANALIZADO
+   ========================================================= */
+
+.highlight-scroll {
+
+    -fx-background-color: #1b1b1b;
+
+    -fx-background-radius: 12;
+
+    -fx-border-color: #333333;
+
+    -fx-border-radius: 12;
+
+}
+
+
+.highlight-scroll > .viewport {
+
+    -fx-background-color: #1b1b1b;
+
+}
+
+
+.highlight-text {
+
+    -fx-text-fill: white;
+
+    -fx-font-size: 14px;
+
+    -fx-padding: 15;
+
+}
+
+
+/* =========================================================
+   CARDS DE EJEMPLOS
+   ========================================================= */
+
+.example-button {
+
+    -fx-background-color: #303030;
+
+    -fx-text-fill: white;
+
+    -fx-background-radius: 12;
+
+    -fx-border-color: #414141;
+
+    -fx-border-width: 1;
+
+    -fx-border-radius: 12;
+
+    -fx-font-size: 14px;
+
+    -fx-padding: 15;
+
+}
+
+
+/* =========================================================
+   EFECTO AL PASAR SOBRE EJEMPLOS
+   ========================================================= */
+
+.example-button:hover {
+
+    -fx-background-color: #3a3a3a;
+
+    -fx-border-color: #555555;
+
+}
+
+
+/* =========================================================
+   BARRA DE DESPLAZAMIENTO
+   ========================================================= */
+
+.scroll-bar {
+
+    -fx-background-color: transparent;
+
+}
+
+
+.scroll-bar .thumb {
+
+    -fx-background-color: #444444;
+
+    -fx-background-radius: 8;
+
+}
+
+
+.scroll-bar .thumb:hover {
+
+    -fx-background-color: #5a5a5a;
+
+}
+
+
+/* =========================================================
+   TOOLTIP
+   ========================================================= */
+
+.tooltip {
+
+    -fx-background-color: #202020;
+
+    -fx-text-fill: white;
+
+    -fx-background-radius: 8;
+
+    -fx-border-color: #3a3a3a;
+
+}

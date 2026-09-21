@@ -236,26 +236,34 @@ public class MainController {
 
 
     // texto original
-
+    /*The "Text" element was replaced with a "Label," which will allow the background
+      of the selected item to be highlighted, as specified in the requirements.*/
     private void showOriginalText() {
 
         highlightedText.getChildren().clear();
 
         for (char character : analyzedText.toCharArray()) {
 
-            Text text = new Text(String.valueOf(character));
+            Label characterLabel = new Label(String.valueOf(character));
 
-            text.getStyleClass().add("highlight-normal");
+            characterLabel.getStyleClass().add("highlight-normal");
 
-            highlightedText.getChildren().add(text);
+            highlightedText.getChildren().add(characterLabel);
         }
     }
 
     // resaltar categoria
-
+    /* The "highlightWords" method was separated to prevent the interface from highlighting
+       every character without respecting the original definition of a word according to
+       "TextAnalyzer".*/
     private void highlightCategory(String category) {
 
         if (analyzedText == null || analyzedText.isEmpty()) {
+            return;
+        }
+
+        if (category.equals("words")) {
+            highlightWords();
             return;
         }
 
@@ -263,15 +271,11 @@ public class MainController {
 
         for (char character : analyzedText.toCharArray()) {
 
-            Text text = new Text(String.valueOf(character));
+            Label characterLabel = new Label(String.valueOf(character));
 
             boolean highlight = false;
 
             switch (category) {
-
-                case "words":
-                    highlight = Character.isLetter(character);
-                    break;
 
                 case "vowels":
                     highlight = textAnalyzer.isVowel(character);
@@ -291,12 +295,58 @@ public class MainController {
             }
 
             if (highlight) {
-                text.getStyleClass().add("highlight-" + category);
+                characterLabel.getStyleClass().add("highlight-" + category);
             } else {
-                text.getStyleClass().add("highlight-normal");
+                characterLabel.getStyleClass().add("highlight-normal");
             }
 
-            highlightedText.getChildren().add(text);
+            highlightedText.getChildren().add(characterLabel);
         }
+    }
+
+    private void highlightWords() {
+
+        highlightedText.getChildren().clear();
+
+        StringBuilder currentWord = new StringBuilder();
+
+        for (char character : analyzedText.toCharArray()) {
+
+            if (Character.isLetter(character)) {
+
+                currentWord.append(character);
+
+            } else {
+
+                if (!currentWord.isEmpty()) {
+                    addHighlightedWord(currentWord.toString());
+                    currentWord.setLength(0);
+                }
+
+                addNormalCharacter(character);
+            }
+        }
+
+        if (!currentWord.isEmpty()) {
+            addHighlightedWord(currentWord.toString());
+        }
+    }
+
+    private void addHighlightedWord(String word) {
+
+        Label wordLabel = new Label(word);
+
+        wordLabel.getStyleClass().add("highlight-words");
+
+        highlightedText.getChildren().add(wordLabel);
+    }
+
+    private void addNormalCharacter(char character) {
+
+        Label characterLabel = new Label(String.valueOf(character));
+
+        characterLabel.getStyleClass().add("highlight-normal");
+
+        highlightedText.getChildren().add(characterLabel);
     }
 }

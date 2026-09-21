@@ -626,15 +626,55 @@
 
 }
 
-
 .highlight-text {
-
-    -fx-text-fill: white;
 
     -fx-font-size: 14px;
 
-    -fx-padding: 15;
+    -fx-padding: 2px 1px;
 
+}
+
+/*  */
+
+.highlight-normal {
+    -fx-background-color: transparent;
+    -fx-text-fill: #D7DCE5;
+    -fx-padding: 2px 1px;
+}
+
+.highlight-vowels {
+    -fx-background-color: #F4D35E;
+    -fx-text-fill: #1B1D23;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px 3px;
+}
+
+.highlight-consonants {
+    -fx-background-color: #E89B6A;
+    -fx-text-fill: #1B1D23;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px 3px;
+}
+
+.highlight-digits {
+    -fx-background-color: #8FB8DE;
+    -fx-text-fill: #1B1D23;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px 3px;
+}
+
+.highlight-special {
+    -fx-background-color: #B39ACF;
+    -fx-text-fill: #1B1D23;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px 3px;
+}
+
+.highlight-words {
+    -fx-background-color: #8FCB9B;
+    -fx-text-fill: #1B1D23;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px 3px;
 }
 
 

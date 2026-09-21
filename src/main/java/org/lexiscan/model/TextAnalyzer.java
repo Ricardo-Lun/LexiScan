@@ -116,8 +116,8 @@ public class TextAnalyzer {
         return Character.isDigit(character);
     }
 
+    //Correction, spaces should be considered as special characters
     public boolean isSpecialCharacter(char character) {
-        return !Character.isLetterOrDigit(character)
-                && !Character.isWhitespace(character); // Spaces should not be counted as special characters.
+        return !Character.isLetterOrDigit(character);
     }
 }

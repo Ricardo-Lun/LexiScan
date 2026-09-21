@@ -193,6 +193,7 @@
     -fx-border-radius: 16;
     -fx-padding: 22;
     -fx-effect: dropshadow(gaussian, rgba(0, 0, 0, 0.45), 12, 0.15, 0, 3);
+    -fx-min-width: 360px;
 }
 
 .results-title {
@@ -338,13 +339,6 @@
     -fx-font-size: 14px;
     -fx-padding: 2px 1px;
 }
-
-    -fx-font-size: 14px;
-
-    -fx-padding: 2px 1px;
-
-}
-
 /*  */
 
 .highlight-normal {

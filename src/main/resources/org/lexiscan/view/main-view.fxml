@@ -312,7 +312,7 @@
 
                                 <Label fx:id="specialCountLabel" text="0" styleClass="result-count"/>
 
-                                <Label text="No letras, dígitos ni espacios" styleClass="result-description"/>
+                                <Label text="No letras ni dígitos (Se cuentan espacios)" styleClass="result-description"/>
 
                             </VBox>
 

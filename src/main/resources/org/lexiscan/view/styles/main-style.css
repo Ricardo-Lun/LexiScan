@@ -339,37 +339,51 @@
     -fx-padding: 2px 1px;
 }
 
+    -fx-font-size: 14px;
+
+    -fx-padding: 2px 1px;
+
+}
+
+/*  */
+
 .highlight-normal {
     -fx-background-color: transparent;
     -fx-text-fill: #D7DCE5;
     -fx-padding: 2px 1px;
 }
 
-/* Colores de resaltado ajustados para que combinen con las tarjetas */
-.highlight-words {
-    -fx-background-color: #5A64ED;
-    -fx-text-fill: white;
-    -fx-background-radius: 4px;
-    -fx-padding: 2px 3px;
-}
-
 .highlight-vowels {
-    -fx-background-color: #33BD6F;
+    -fx-background-color: #F4D35E;
     -fx-text-fill: #1B1D23;
     -fx-background-radius: 4px;
     -fx-padding: 2px 3px;
 }
 
 .highlight-consonants {
-    -fx-background-color: #F0A238;
+    -fx-background-color: #E89B6A;
     -fx-text-fill: #1B1D23;
     -fx-background-radius: 4px;
     -fx-padding: 2px 3px;
 }
 
 .highlight-digits {
-    -fx-background-color: #9762F5;
-    -fx-text-fill: white;
+    -fx-background-color: #8FB8DE;
+    -fx-text-fill: #1B1D23;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px 3px;
+}
+
+.highlight-special {
+    -fx-background-color: #B39ACF;
+    -fx-text-fill: #1B1D23;
+    -fx-background-radius: 4px;
+    -fx-padding: 2px 3px;
+}
+
+.highlight-words {
+    -fx-background-color: #8FCB9B;
+    -fx-text-fill: #1B1D23;
     -fx-background-radius: 4px;
     -fx-padding: 2px 3px;
 }
